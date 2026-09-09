@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Ashcraft | Pure Juices &amp; Bespoke Gifts</title>
 	<meta name="description"
-		content="Ashcraft crafts 100% natural fruit juices and bespoke, personalized gifts. Pure ingredients, expert craftsmanship, and a personal touch for every occasion." />
+		content="Ashcraft crafts 100% natural fruit juices and bespoke, personalized gifts." />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -20,130 +20,151 @@
 			--border: #e6e1d8;
 			--primary: #c1622d;
 			--sage: #7c8a68;
-			--white: #ffffff;
 		}
 
-		* {
-			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
-		}
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+
+		html { -webkit-text-size-adjust: 100%; }
 
 		body {
 			font-family: 'Inter', sans-serif;
 			background: var(--bg);
 			color: var(--fg);
 			line-height: 1.5;
+			overflow-x: hidden;
 		}
 
-		.display {
-			font-family: 'Cormorant Garamond', serif;
-		}
-
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-
-		img {
-			max-width: 100%;
-			display: block;
-		}
+		.display { font-family: 'Cormorant Garamond', serif; }
+		a { color: inherit; text-decoration: none; }
+		img { max-width: 100%; display: block; }
 
 		.wrap {
+			width: 100%;
 			max-width: 1200px;
 			margin: 0 auto;
-			padding: 0 24px;
+			padding: 0 20px;
 		}
 
 		nav {
 			position: sticky;
 			top: 0;
-			background: rgba(250, 247, 242, 0.9);
+			background: rgba(250, 247, 242, 0.92);
 			backdrop-filter: blur(6px);
 			border-bottom: 1px solid var(--border);
 			z-index: 50;
 		}
 
 		nav .wrap {
-			height: 80px;
+			min-height: 76px;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 12px;
+			padding-top: 10px;
+			padding-bottom: 10px;
 		}
 
 		.logo {
 			display: flex;
 			align-items: center;
-			gap: 12px;
-			font-size: 26px;
+			gap: 10px;
+			font-size: clamp(20px, 4vw, 26px);
 			font-style: italic;
+			white-space: nowrap;
 		}
 
 		.logo img {
-			height: 40px;
-			width: 40px;
+			height: 38px;
+			width: 38px;
 			border-radius: 50%;
 			object-fit: cover;
+			flex-shrink: 0;
+		}
+
+		.nav-right {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			flex-wrap: wrap;
+			justify-content: flex-end;
 		}
 
 		.nav-links {
 			display: flex;
-			gap: 32px;
-			font-size: 13px;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			font-weight: 500;
-		}
-
-		.nav-links a:hover {
-			color: var(--primary);
-		}
-
-		.btn {
-			padding: 10px 22px;
-			background: var(--fg);
-			color: var(--bg);
-			border-radius: 999px;
+			gap: 20px;
 			font-size: 12px;
 			text-transform: uppercase;
 			letter-spacing: 1px;
 			font-weight: 500;
+			flex-wrap: wrap;
 		}
 
-		.btn:hover {
-			background: var(--primary);
-			color: #fff;
-		}
+		.nav-links a:hover { color: var(--primary); }
 
-		header {
-			padding: 96px 0;
+		.lang-toggle {
+			display: flex;
+			border: 1px solid var(--fg);
+			border-radius: 999px;
 			overflow: hidden;
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			flex-shrink: 0;
 		}
+
+		.lang-toggle button {
+			border: none;
+			background: transparent;
+			color: var(--fg);
+			padding: 6px 12px;
+			cursor: pointer;
+			font-family: inherit;
+			font-size: inherit;
+			font-weight: inherit;
+		}
+
+		.lang-toggle button.active {
+			background: var(--fg);
+			color: var(--bg);
+		}
+
+		.btn {
+			padding: 9px 18px;
+			background: var(--fg);
+			color: var(--bg);
+			border-radius: 999px;
+			font-size: 11px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-weight: 500;
+			white-space: nowrap;
+		}
+
+		.btn:hover { background: var(--primary); color: #fff; }
+
+		header { padding: clamp(48px, 8vw, 96px) 0; overflow: hidden; }
 
 		.hero {
 			display: grid;
 			grid-template-columns: 1.4fr 1fr;
-			gap: 48px;
+			gap: clamp(32px, 6vw, 48px);
 			align-items: center;
 		}
 
 		.hero h1 {
-			font-size: 72px;
-			line-height: 0.95;
-			margin-bottom: 28px;
+			font-size: clamp(40px, 8vw, 72px);
+			line-height: 1;
+			margin-bottom: 20px;
 		}
 
-		.hero h1 em {
-			color: var(--primary);
-			font-style: italic;
-		}
+		.hero h1 em { color: var(--primary); font-style: italic; }
 
 		.hero p {
 			max-width: 45ch;
 			color: var(--muted);
-			font-size: 18px;
-			margin-bottom: 36px;
+			font-size: clamp(15px, 2.2vw, 18px);
+			margin-bottom: 28px;
 		}
 
 		.link-arrow {
@@ -155,15 +176,13 @@
 			padding-bottom: 4px;
 		}
 
-		.hero-img {
-			position: relative;
-		}
+		.hero-img { position: relative; max-width: 380px; margin: 0 auto; }
 
 		.hero-img .card {
 			background: #fff;
 			border-radius: 20px;
 			box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
-			padding: 14px;
+			padding: 12px;
 			transform: rotate(2deg);
 		}
 
@@ -175,12 +194,12 @@
 
 		.badge-100 {
 			position: absolute;
-			bottom: -24px;
-			left: -24px;
+			bottom: -18px;
+			left: -18px;
 			background: var(--primary);
 			color: #fff;
-			width: 96px;
-			height: 96px;
+			width: clamp(72px, 14vw, 96px);
+			height: clamp(72px, 14vw, 96px);
 			border-radius: 50%;
 			display: flex;
 			flex-direction: column;
@@ -188,82 +207,34 @@
 			justify-content: center;
 			transform: rotate(-12deg);
 			border: 4px solid var(--bg);
+			text-align: center;
 		}
 
-		.badge-100 strong {
-			font-family: 'Cormorant Garamond', serif;
-			font-style: italic;
-			font-size: 22px;
-		}
+		.badge-100 strong { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(16px, 3vw, 22px); }
+		.badge-100 span { font-size: 8px; text-transform: uppercase; }
 
-		.badge-100 span {
-			font-size: 8px;
-			text-transform: uppercase;
-		}
+		section { padding: clamp(56px, 8vw, 96px) 0; }
+		.alt { background: rgba(255, 255, 255, 0.5); }
 
-		section {
-			padding: 96px 0;
-		}
+		.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+		.grid3 h3 { font-size: 26px; margin-bottom: 14px; }
+		.grid3 p { color: var(--muted); font-size: 15px; }
 
-		.alt {
-			background: rgba(255, 255, 255, 0.5);
-		}
+		.section-head { margin-bottom: 48px; }
+		.section-head h2 { font-size: clamp(30px, 5vw, 40px); font-style: italic; margin-bottom: 10px; }
+		.section-head p { color: var(--muted); max-width: 420px; }
 
-		.grid3 {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 32px;
-		}
-
-		.grid3 h3 {
-			font-size: 28px;
-			margin-bottom: 16px;
-		}
-
-		.grid3 p {
-			color: var(--muted);
-		}
-
-		.section-head {
-			margin-bottom: 64px;
-		}
-
-		.section-head h2 {
-			font-size: 40px;
-			font-style: italic;
-			margin-bottom: 12px;
-		}
-
-		.section-head p {
-			color: var(--muted);
-			max-width: 420px;
-		}
-
-		.products {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 48px;
-		}
-
+		.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 		.product img {
 			width: 100%;
 			aspect-ratio: 1/1;
 			object-fit: cover;
 			border-radius: 16px;
-			margin-bottom: 24px;
+			margin-bottom: 20px;
 			background: #eee;
 		}
-
-		.product h3 {
-			font-size: 24px;
-			margin-bottom: 8px;
-		}
-
-		.product p {
-			font-size: 14px;
-			color: var(--muted);
-			margin-bottom: 24px;
-		}
+		.product h3 { font-size: 22px; margin-bottom: 8px; }
+		.product p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
 
 		.tag-btn {
 			display: inline-block;
@@ -276,256 +247,110 @@
 			font-weight: 700;
 			letter-spacing: 1px;
 		}
+		.tag-btn:hover { background: var(--primary); color: #fff; }
 
-		.tag-btn:hover {
-			background: var(--primary);
-			color: #fff;
-		}
+		.gifts-head { margin-bottom: 48px; }
+		.gifts-head h2 { font-size: clamp(30px, 5vw, 44px); margin-bottom: 10px; }
 
-		.gifts-head {
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-end;
-			margin-bottom: 64px;
-			gap: 24px;
-			flex-wrap: wrap;
-		}
-
-		.gifts-head h2 {
-			font-size: 44px;
-			margin-bottom: 12px;
-		}
-
-		.gifts-grid {
-			display: grid;
-			grid-template-columns: repeat(12, 1fr);
-			gap: 32px;
-		}
+		.gifts-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
 
 		.g-large {
-			grid-column: span 8;
+			grid-column: span 12;
 			background: rgba(124, 138, 104, .06);
-			border-radius: 24px;
-			padding: 48px;
+			border-radius: 20px;
+			padding: clamp(24px, 5vw, 48px);
 			display: flex;
-			gap: 48px;
+			gap: 32px;
 			align-items: center;
 			flex-wrap: wrap;
 		}
-
-		.g-large>div {
-			flex: 1;
-			min-width: 240px;
-		}
-
-		.g-large h3,
-		.g-small h3 {
-			font-size: 28px;
-			margin-bottom: 16px;
-		}
-
-		.g-large p,
-		.g-small p {
-			color: var(--muted);
-			margin-bottom: 20px;
-		}
-
-		.g-large img {
-			border-radius: 14px;
-			aspect-ratio: 4/3;
-			object-fit: cover;
-			flex: 1;
-			min-width: 240px;
-		}
+		.g-large > div { flex: 1; min-width: 220px; }
+		.g-large img { border-radius: 14px; aspect-ratio: 4/3; object-fit: cover; flex: 1; min-width: 220px; }
 
 		.g-small {
-			grid-column: span 4;
+			grid-column: span 12;
 			background: rgba(193, 98, 45, .05);
-			border-radius: 24px;
-			padding: 32px;
+			border-radius: 20px;
+			padding: 28px;
 		}
+		.g-small img { border-radius: 14px; aspect-ratio: 1/1; object-fit: cover; margin-bottom: 20px; max-width: 260px; }
 
-		.g-small img {
-			border-radius: 14px;
-			aspect-ratio: 1/1;
-			object-fit: cover;
-			margin-bottom: 24px;
-		}
+		.g-large h3, .g-small h3 { font-size: 24px; margin-bottom: 12px; }
+		.g-large p, .g-small p { color: var(--muted); margin-bottom: 16px; font-size: 15px; }
 
 		.g-full {
 			grid-column: span 12;
 			background: var(--fg);
 			color: var(--bg);
-			border-radius: 24px;
-			padding: 64px;
+			border-radius: 20px;
+			padding: clamp(28px, 6vw, 64px);
 		}
-
-		.g-full h3 {
-			font-size: 36px;
-			margin-bottom: 20px;
-			font-family: 'Cormorant Garamond', serif;
-		}
-
-		.g-full p {
-			opacity: .8;
-			max-width: 520px;
-			margin-bottom: 28px;
-		}
-
+		.g-full h3 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 16px; font-family: 'Cormorant Garamond', serif; }
+		.g-full p { opacity: .8; max-width: 520px; margin-bottom: 24px; }
 		.g-full .btn2 {
 			display: inline-block;
-			padding: 14px 32px;
+			padding: 13px 28px;
 			background: var(--primary);
 			color: #fff;
 			border-radius: 999px;
 			font-weight: 500;
 		}
 
-		.values-head {
-			text-align: center;
-			max-width: 600px;
-			margin: 0 auto 80px;
+		@media (min-width: 768px) {
+			.g-large { grid-column: span 8; }
+			.g-small { grid-column: span 4; }
 		}
 
-		.values-head h2 {
-			font-size: 42px;
-			margin-bottom: 16px;
-		}
+		.values-head { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+		.values-head h2 { font-size: clamp(28px, 5vw, 42px); margin-bottom: 14px; }
+		.values-head p { color: var(--muted); }
 
-		.values-head p {
-			color: var(--muted);
-		}
-
-		.values-grid {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 40px;
-		}
-
+		.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
 		.icon-circ {
-			width: 48px;
-			height: 48px;
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-			font-size: 20px;
-			background: rgba(193, 98, 45, .1);
-			color: var(--primary);
+			width: 44px; height: 44px; border-radius: 50%;
+			display: flex; align-items: center; justify-content: center;
+			margin-bottom: 16px; font-size: 18px;
+			background: rgba(193, 98, 45, .1); color: var(--primary);
+		}
+		.values-grid h4 { font-size: 18px; margin-bottom: 10px; }
+		.values-grid p { font-size: 14px; color: var(--muted); }
+
+		@media (min-width: 768px) {
+			.values-grid { grid-template-columns: repeat(4, 1fr); }
 		}
 
-		.values-grid h4 {
-			font-size: 20px;
-			margin-bottom: 12px;
+		footer { padding: 56px 0; border-top: 1px solid var(--border); }
+		.foot-grid { display: grid; grid-template-columns: 1fr; gap: 36px; margin-bottom: 48px; }
+		@media (min-width: 700px) {
+			.foot-grid { grid-template-columns: repeat(3, 1fr); }
 		}
-
-		.values-grid p {
-			font-size: 14px;
-			color: var(--muted);
-		}
-
-		footer {
-			padding: 80px 0;
-			border-top: 1px solid var(--border);
-		}
-
-		.foot-grid {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 48px;
-			margin-bottom: 64px;
-			text-align: left;
-		}
-
-		.foot-logo {
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			margin-bottom: 16px;
-		}
-
-		.foot-logo img {
-			height: 40px;
-			width: 40px;
-			border-radius: 50%;
-			object-fit: cover;
-		}
-
-		.foot-logo span {
-			font-size: 28px;
-			font-style: italic;
-			font-family: 'Cormorant Garamond', serif;
-		}
-
+		.foot-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+		.foot-logo img { height: 38px; width: 38px; border-radius: 50%; object-fit: cover; }
+		.foot-logo span { font-size: 26px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
 		footer h4 {
-			font-size: 11px;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			color: var(--muted);
-			margin-bottom: 20px;
-			font-weight: 700;
+			font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+			color: var(--muted); margin-bottom: 16px; font-weight: 700;
 		}
+		footer .contact-line { display: flex; gap: 8px; margin-bottom: 10px; font-size: 14px; flex-wrap: wrap; }
+		footer .contact-line a:hover { color: var(--primary); }
 
-		footer .contact-line {
-			display: flex;
-			gap: 8px;
-			margin-bottom: 12px;
-			font-size: 14px;
-		}
-
-		footer .contact-line a:hover {
-			color: var(--primary);
-		}
-
-		.foot-bottom {
-			border-top: 1px solid var(--border);
-			padding-top: 36px;
-			text-align: center;
-		}
-
+		.foot-bottom { border-top: 1px solid var(--border); padding-top: 28px; text-align: center; }
 		.foot-social {
-			display: flex;
-			justify-content: center;
-			gap: 32px;
-			font-size: 11px;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			font-weight: 700;
-			color: var(--muted);
-			margin-bottom: 28px;
+			display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+			font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+			font-weight: 700; color: var(--muted); margin-bottom: 22px;
 		}
+		.foot-social a:hover { color: var(--primary); }
+		.copyright { font-size: 10px; text-transform: uppercase; color: var(--muted); font-family: monospace; }
 
-		.foot-social a:hover {
-			color: var(--primary);
-		}
-
-		.copyright {
-			font-size: 10px;
-			text-transform: uppercase;
-			color: var(--muted);
-			font-family: monospace;
-		}
-
-		@media(max-width:900px) {
-
-			.hero,
-			.grid3,
-			.products,
-			.values-grid,
-			.foot-grid {
-				grid-template-columns: 1fr;
-			}
-
-			.g-large,
-			.g-small,
-			.g-full {
-				grid-column: span 12;
-			}
-
-			.hero h1 {
-				font-size: 48px;
-			}
+		@media (max-width: 700px) {
+			.hero { grid-template-columns: 1fr; }
+			.hero-img { order: -1; }
+			.grid3 { grid-template-columns: 1fr; }
+			.products { grid-template-columns: 1fr; }
+			.foot-grid { text-align: center; }
+			.foot-logo { justify-content: center; }
+			footer .contact-line { justify-content: center; }
 		}
 	</style>
 </head>
@@ -538,29 +363,39 @@
 				<img src="ashcraft-logo.jpg" alt="Ashcraft logo" />
 				Ashcraft
 			</a>
-			<div class="nav-links">
-				<a href="#juices">Juices</a>
-				<a href="#gifts">Gifts</a>
-				<a href="#values">Our Story</a>
+			<div class="nav-right">
+				<div class="nav-links">
+					<a href="#juices" class="i18n" data-en="Juices" data-fr="Jus">Juices</a>
+					<a href="#gifts" class="i18n" data-en="Gifts" data-fr="Cadeaux">Gifts</a>
+					<a href="#values" class="i18n" data-en="Our Story" data-fr="Notre Histoire">Our Story</a>
+				</div>
+				<div class="lang-toggle">
+					<button type="button" id="btnEn" class="active" onclick="setLang('en')">EN</button>
+					<button type="button" id="btnFr" onclick="setLang('fr')">FR</button>
+				</div>
+				<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="btn i18n" data-en="Shop Now" data-fr="Acheter">Shop Now</a>
 			</div>
-			<a href="https://wa.me/237658844708" target="_blank" class="btn">Shop Now</a>
 		</div>
 	</nav>
 
 	<header>
 		<div class="wrap hero">
 			<div>
-				<h1 class="display">Pure &amp; <em>Natural</em></h1>
-				<p>At Ashcraft, we believe in purity—our juices are made with 100% real fruit, free from artificial
-					additives or preservatives, ensuring you enjoy nature's best in every sip.</p>
-				<a href="#juices" class="link-arrow">Explore Juices →</a>
+				<h1 class="display">
+					<span class="i18n" data-en="Pure &amp; " data-fr="Pur &amp; " data-html="true">Pure &amp; </span><em class="i18n" data-en="Natural" data-fr="Naturel">Natural</em>
+				</h1>
+				<p class="i18n" data-en="At Ashcraft, we believe in purity—our juices are made with 100% real fruit, free from artificial additives or preservatives, ensuring you enjoy nature's best in every sip." data-fr="Chez Ashcraft, nous croyons en la pureté — nos jus sont fabriqués à partir de 100% de fruits véritables, sans additifs ni conservateurs artificiels, pour que vous profitiez du meilleur de la nature à chaque gorgée.">At Ashcraft, we believe in purity—our juices are made with 100% real fruit, free from artificial additives or preservatives, ensuring you enjoy nature's best in every sip.</p>
+				<a href="#juices" class="link-arrow i18n" data-en="Explore Juices →" data-fr="Découvrir les jus →">Explore Juices →</a>
 			</div>
 			<div class="hero-img">
 				<div class="card">
 					<img src="pineapple-juice.jpeg"
 						alt="A chilled bottle of fresh Ashcraft juice on a sunlit wooden table with pressed flowers" />
 				</div>
-				<div class="badge-100"><strong>100%</strong><span>Real Fruit</span></div>
+				<div class="badge-100">
+					<strong>100%</strong>
+					<span class="i18n" data-en="Real Fruit" data-fr="Fruit Naturel">Real Fruit</span>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -568,19 +403,16 @@
 	<section class="alt">
 		<div class="wrap grid3">
 			<div>
-				<h3 class="display">Pure &amp; Natural</h3>
-				<p>At Ashcraft, we believe in purity—our juices are made with 100% real fruit, free from artificial
-					additives or preservatives, ensuring you enjoy nature's best in every sip.</p>
+				<h3 class="display i18n" data-en="Pure &amp; Natural" data-fr="Pur &amp; Naturel" data-html="true">Pure &amp; Natural</h3>
+				<p class="i18n" data-en="At Ashcraft, we believe in purity—our juices are made with 100% real fruit, free from artificial additives or preservatives, ensuring you enjoy nature's best in every sip." data-fr="Chez Ashcraft, nous croyons en la pureté — nos jus sont fabriqués à partir de 100% de fruits véritables, sans additifs ni conservateurs artificiels.">At Ashcraft, we believe in purity—our juices are made with 100% real fruit, free from artificial additives or preservatives, ensuring you enjoy nature's best in every sip.</p>
 			</div>
 			<div>
-				<h3 class="display">Bespoke Creations</h3>
-				<p>Our handcrafted items are tailored specifically to your vision, making each piece a unique expression
-					of your style and occasion.</p>
+				<h3 class="display i18n" data-en="Bespoke Creations" data-fr="Créations Sur Mesure">Bespoke Creations</h3>
+				<p class="i18n" data-en="Our handcrafted items are tailored specifically to your vision, making each piece a unique expression of your style and occasion." data-fr="Nos articles artisanaux sont conçus selon votre vision, faisant de chaque pièce une expression unique de votre style et de l'occasion.">Our handcrafted items are tailored specifically to your vision, making each piece a unique expression of your style and occasion.</p>
 			</div>
 			<div>
-				<h3 class="display">For Every Occasion</h3>
-				<p>Whether it's a daily refreshment, a special celebration, or a thoughtful corporate gift, Ashcraft
-					offers quality, passion, and a personal touch in every product.</p>
+				<h3 class="display i18n" data-en="For Every Occasion" data-fr="Pour Chaque Occasion">For Every Occasion</h3>
+				<p class="i18n" data-en="Whether it's a daily refreshment, a special celebration, or a thoughtful corporate gift, Ashcraft offers quality, passion, and a personal touch in every product." data-fr="Qu'il s'agisse d'une boisson quotidienne, d'une célébration spéciale ou d'un cadeau d'entreprise, Ashcraft offre qualité, passion et une touche personnelle dans chaque produit.">Whether it's a daily refreshment, a special celebration, or a thoughtful corporate gift, Ashcraft offers quality, passion, and a personal touch in every product.</p>
 			</div>
 		</div>
 	</section>
@@ -588,40 +420,33 @@
 	<section id="juices">
 		<div class="wrap">
 			<div class="section-head">
-				<h2 class="display">Vibrant Natural Juices</h2>
-				<p>Pure, refreshing, and bursting with flavor—perfect for revitalizing your day.</p>
+				<h2 class="display i18n" data-en="Vibrant Natural Juices" data-fr="Jus Naturels Vibrants">Vibrant Natural Juices</h2>
+				<p class="i18n" data-en="Pure, refreshing, and bursting with flavor—perfect for revitalizing your day." data-fr="Purs, rafraîchissants et pleins de saveur — parfaits pour revitaliser votre journée.">Pure, refreshing, and bursting with flavor—perfect for revitalizing your day.</p>
 			</div>
 			<div class="products">
 				<div class="product">
 					<img src="baobab-juice.jpeg" alt="Bottle of Ashcraft's Natural Sip baobab juice" />
-					<h3 class="display">Velvet Baobab Bliss</h3>
-					<p>Experience the superfood power of our authentic baobab juice, packed with natural vitamin C,
-						antioxidants, and a tangy, refreshing flavor that revitalizes your day.</p>
-					<a href="https://wa.me/237658844708" target="_blank" class="tag-btn">Contact for pricing</a>
+					<h3 class="display i18n" data-en="Velvet Baobab Bliss" data-fr="Douceur de Baobab">Velvet Baobab Bliss</h3>
+					<p class="i18n" data-en="Experience the superfood power of our authentic baobab juice, packed with natural vitamin C, antioxidants, and a tangy, refreshing flavor that revitalizes your day." data-fr="Découvrez la puissance de notre jus de baobab authentique, riche en vitamine C naturelle et en antioxydants, avec une saveur acidulée et rafraîchissante.">Experience the superfood power of our authentic baobab juice, packed with natural vitamin C, antioxidants, and a tangy, refreshing flavor that revitalizes your day.</p>
+					<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="tag-btn i18n" data-en="Contact for pricing" data-fr="Contactez-nous pour les prix">Contact for pricing</a>
 				</div>
 				<div class="product">
-					<img src="pineapple-juice-2.jpeg"
-						alt="1L bottle of Ashcraft's Natural Sip pineapple juice" />
-					<h3 class="display">Tropical Pineapple</h3>
-					<p>Escape to the tropics with our pure pineapple juice, filled with vibrant flavor and natural
-						sweetness.</p>
-					<a href="https://wa.me/237658844708" target="_blank" class="tag-btn">Contact for pricing</a>
+					<img src="pineapple-juice-2.jpeg" alt="1L bottle of Ashcraft's Natural Sip pineapple juice" />
+					<h3 class="display i18n" data-en="Tropical Pineapple" data-fr="Ananas Tropical">Tropical Pineapple</h3>
+					<p class="i18n" data-en="Escape to the tropics with our pure pineapple juice, filled with vibrant flavor and natural sweetness." data-fr="Évadez-vous vers les tropiques avec notre jus d'ananas pur, plein de saveur vibrante et de douceur naturelle.">Escape to the tropics with our pure pineapple juice, filled with vibrant flavor and natural sweetness.</p>
+					<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="tag-btn i18n" data-en="Contact for pricing" data-fr="Contactez-nous pour les prix">Contact for pricing</a>
 				</div>
 				<div class="product">
-					<img src="watermelon-pineapple.jpeg"
-						alt="Bottle of Ashcraft's Natural Sip watermelon pineapple juice" />
-					<h3 class="display">Tropical Watermelon-Pineapple Splash</h3>
-					<p>A vibrant blend of hydrating watermelon and sweet, tangy pineapple, bringing you a tropical burst
-						of natural energy in every sip.</p>
-					<a href="https://wa.me/237658844708" target="_blank" class="tag-btn">Contact for pricing</a>
+					<img src="watermelon-pineapple.jpeg" alt="Bottle of Ashcraft's Natural Sip watermelon pineapple juice" />
+					<h3 class="display i18n" data-en="Tropical Watermelon-Pineapple Splash" data-fr="Éclat Pastèque-Ananas">Tropical Watermelon-Pineapple Splash</h3>
+					<p class="i18n" data-en="A vibrant blend of hydrating watermelon and sweet, tangy pineapple, bringing you a tropical burst of natural energy in every sip." data-fr="Un mélange vibrant de pastèque hydratante et d'ananas sucré et acidulé, pour une explosion tropicale d'énergie naturelle à chaque gorgée.">A vibrant blend of hydrating watermelon and sweet, tangy pineapple, bringing you a tropical burst of natural energy in every sip.</p>
+					<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="tag-btn i18n" data-en="Contact for pricing" data-fr="Contactez-nous pour les prix">Contact for pricing</a>
 				</div>
 				<div class="product">
-					<img src="pineapple-carrot-orange-ginger.jpeg"
-						alt="Bottle of pineapple, carrot, orange and ginger juice" />
-					<h3 class="display">Pineapple • Carrot • Orange • Ginger</h3>
-					<p>A golden four-fruit blend with a warm ginger kick—nourishing, energizing, and made with 100% real
-						fruit.</p>
-					<a href="https://wa.me/237658844708" target="_blank" class="tag-btn">Contact for pricing</a>
+					<img src="pineapple-carrot-orange-ginger.jpeg" alt="Bottle of pineapple, carrot, orange and ginger juice" />
+					<h3 class="display i18n" data-en="Pineapple • Carrot • Orange • Ginger" data-fr="Ananas • Carotte • Orange • Gingembre">Pineapple • Carrot • Orange • Ginger</h3>
+					<p class="i18n" data-en="A golden four-fruit blend with a warm ginger kick—nourishing, energizing, and made with 100% real fruit." data-fr="Un mélange doré de quatre fruits avec une touche chaleureuse de gingembre — nourrissant, énergisant, fait avec 100% de fruits véritables.">A golden four-fruit blend with a warm ginger kick—nourishing, energizing, and made with 100% real fruit.</p>
+					<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="tag-btn i18n" data-en="Contact for pricing" data-fr="Contactez-nous pour les prix">Contact for pricing</a>
 				</div>
 			</div>
 		</div>
@@ -630,32 +455,27 @@
 	<section id="gifts" class="alt">
 		<div class="wrap">
 			<div class="gifts-head">
-				<div>
-					<h2 class="display">Creative &amp; Personalized Gifts</h2>
-					<p>Handcrafted with care, our custom creations make every event memorable and meaningful.</p>
-				</div>
+				<h2 class="display i18n" data-en="Creative &amp; Personalized Gifts" data-fr="Cadeaux Créatifs et Personnalisés" data-html="true">Creative &amp; Personalized Gifts</h2>
+				<p class="i18n" data-en="Handcrafted with care, our custom creations make every event memorable and meaningful." data-fr="Fabriquées avec soin, nos créations sur mesure rendent chaque événement mémorable et significatif.">Handcrafted with care, our custom creations make every event memorable and meaningful.</p>
 			</div>
 			<div class="gifts-grid">
 				<div class="g-large">
 					<div>
-						<h3 class="display">Handcrafted Party Decor</h3>
-						<p>Create unforgettable events with our bespoke, handcrafted decorations, tailored to match your
-							theme and style.</p>
-						<a href="https://wa.me/237658844708" target="_blank" class="link-arrow">Inquire Now →</a>
+						<h3 class="display i18n" data-en="Handcrafted Party Decor" data-fr="Décorations de Fête Artisanales">Handcrafted Party Decor</h3>
+						<p class="i18n" data-en="Create unforgettable events with our bespoke, handcrafted decorations, tailored to match your theme and style." data-fr="Créez des événements inoubliables avec nos décorations artisanales sur mesure, adaptées à votre thème et votre style.">Create unforgettable events with our bespoke, handcrafted decorations, tailored to match your theme and style.</p>
+						<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="link-arrow i18n" data-en="Inquire Now →" data-fr="Renseignez-vous →">Inquire Now →</a>
 					</div>
-					<img src="gift-set-notebook.jpeg"
-						alt="Personalized engraved notebook and pen gift box set" />
+					<img src="gift-set-notebook.jpeg" alt="Personalized engraved notebook and pen gift box set" />
 				</div>
 				<div class="g-small">
 					<img src="engraved-tumblers.jpeg" alt="Two black tumblers engraved with custom names" />
-					<h3 class="display">Custom Engraved Items</h3>
-					<p>From glassware to keepsakes, our engraved items add a personal touch to any occasion.</p>
+					<h3 class="display i18n" data-en="Custom Engraved Items" data-fr="Articles Gravés Personnalisés">Custom Engraved Items</h3>
+					<p class="i18n" data-en="From glassware to keepsakes, our engraved items add a personal touch to any occasion." data-fr="Des verres aux souvenirs, nos articles gravés ajoutent une touche personnelle à chaque occasion.">From glassware to keepsakes, our engraved items add a personal touch to any occasion.</p>
 				</div>
 				<div class="g-full">
-					<h3>Personalized Gift Baskets</h3>
-					<p>Curated with your favorite products and personalized touches, our gift baskets are perfect for
-						celebrations, corporate events, or thoughtful surprises.</p>
-					<a href="https://wa.me/237658844708" target="_blank" class="btn2">Build a Basket</a>
+					<h3 class="i18n" data-en="Personalized Gift Baskets" data-fr="Paniers-Cadeaux Personnalisés">Personalized Gift Baskets</h3>
+					<p class="i18n" data-en="Curated with your favorite products and personalized touches, our gift baskets are perfect for celebrations, corporate events, or thoughtful surprises." data-fr="Composés de vos produits préférés et de touches personnalisées, nos paniers-cadeaux sont parfaits pour les célébrations, événements d'entreprise ou surprises attentionnées.">Curated with your favorite products and personalized touches, our gift baskets are perfect for celebrations, corporate events, or thoughtful surprises.</p>
+					<a href="https://wa.me/237658844708" target="_blank" rel="noopener" class="btn2 i18n" data-en="Build a Basket" data-fr="Composer un panier">Build a Basket</a>
 				</div>
 			</div>
 		</div>
@@ -664,30 +484,29 @@
 	<section id="values">
 		<div class="wrap">
 			<div class="values-head">
-				<h2 class="display">Why Choose Ashcraft</h2>
-				<p>Dedicated to quality, authenticity, and personalized service, we bring your vision to life with
-					passion and care.</p>
+				<h2 class="display i18n" data-en="Why Choose Ashcraft" data-fr="Pourquoi Choisir Ashcraft">Why Choose Ashcraft</h2>
+				<p class="i18n" data-en="Dedicated to quality, authenticity, and personalized service, we bring your vision to life with passion and care." data-fr="Dévoués à la qualité, à l'authenticité et à un service personnalisé, nous donnons vie à votre vision avec passion et soin.">Dedicated to quality, authenticity, and personalized service, we bring your vision to life with passion and care.</p>
 			</div>
 			<div class="values-grid">
 				<div>
 					<div class="icon-circ">❃</div>
-					<h4>Pure Ingredients</h4>
-					<p>We prioritize natural, 100% real ingredients in all our products.</p>
+					<h4 class="i18n" data-en="Pure Ingredients" data-fr="Ingrédients Purs">Pure Ingredients</h4>
+					<p class="i18n" data-en="We prioritize natural, 100% real ingredients in all our products." data-fr="Nous privilégions des ingrédients naturels et 100% véritables dans tous nos produits.">We prioritize natural, 100% real ingredients in all our products.</p>
 				</div>
 				<div>
 					<div class="icon-circ">✎</div>
-					<h4>Expert Craftsmanship</h4>
-					<p>Our skilled artisans craft each item with attention to detail.</p>
+					<h4 class="i18n" data-en="Expert Craftsmanship" data-fr="Savoir-faire Expert">Expert Craftsmanship</h4>
+					<p class="i18n" data-en="Our skilled artisans craft each item with attention to detail." data-fr="Nos artisans qualifiés fabriquent chaque article avec un souci du détail.">Our skilled artisans craft each item with attention to detail.</p>
 				</div>
 				<div>
 					<div class="icon-circ">♡</div>
-					<h4>Customer Satisfaction</h4>
-					<p>We listen to your needs, offering personalized service.</p>
+					<h4 class="i18n" data-en="Customer Satisfaction" data-fr="Satisfaction Client">Customer Satisfaction</h4>
+					<p class="i18n" data-en="We listen to your needs, offering personalized service." data-fr="Nous écoutons vos besoins et offrons un service personnalisé.">We listen to your needs, offering personalized service.</p>
 				</div>
 				<div>
 					<div class="icon-circ">✧</div>
-					<h4>Creative Innovation</h4>
-					<p>Constantly exploring new flavors and designs to delight you.</p>
+					<h4 class="i18n" data-en="Creative Innovation" data-fr="Innovation Créative">Creative Innovation</h4>
+					<p class="i18n" data-en="Constantly exploring new flavors and designs to delight you." data-fr="Toujours à la recherche de nouvelles saveurs et créations pour vous ravir.">Constantly exploring new flavors and designs to delight you.</p>
 				</div>
 			</div>
 		</div>
@@ -701,30 +520,50 @@
 						<img src="ashcraft-logo.jpg" alt="Ashcraft logo" />
 						<span>Ashcraft</span>
 					</div>
-					<p style="color:var(--muted); font-size:14px;">Handcrafted juices and bespoke gifts, made with love
-						and a personal touch.</p>
+					<p style="color:var(--muted); font-size:14px;" class="i18n" data-en="Handcrafted juices and bespoke gifts, made with love and a personal touch." data-fr="Jus artisanaux et cadeaux sur mesure, fabriqués avec amour et une touche personnelle.">Handcrafted juices and bespoke gifts, made with love and a personal touch.</p>
 				</div>
 				<div>
-					<h4>Location</h4>
+					<h4 class="i18n" data-en="Location" data-fr="Emplacement">Location</h4>
 					<p style="font-size:14px; margin-bottom:6px;">Yaoundé, Cameroon</p>
-					<p style="font-size:14px; color:var(--muted);">Operating throughout Cameroon</p>
+					<p style="font-size:14px; color:var(--muted);" class="i18n" data-en="Operating throughout Cameroon" data-fr="Opérant dans tout le Cameroun">Operating throughout Cameroon</p>
 				</div>
 				<div>
-					<h4>Contact</h4>
-					<div class="contact-line"><a href="https://wa.me/237658844708" target="_blank">WhatsApp <strong>+237
-								6 58 84 47 08</strong></a></div>
-					<div class="contact-line"><a href="tel:+237682001041">Call <strong>+237 6 82 00 10 41</strong></a>
-					</div>
+					<h4 class="i18n" data-en="Contact" data-fr="Contact">Contact</h4>
+					<div class="contact-line"><a href="https://wa.me/237658844708" target="_blank" rel="noopener">WhatsApp <strong>+237 6 58 84 47 08</strong></a></div>
+					<div class="contact-line"><a href="tel:+237682001041"><span class="i18n" data-en="Call" data-fr="Appeler">Call</span> <strong>+237 6 82 00 10 41</strong></a></div>
 				</div>
 			</div>
 			<div class="foot-bottom">
 				<div class="foot-social">
 					<a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a>
 				</div>
-				<p class="copyright">© Ashcraft Bespoke Creations &amp; Juicery. Crafted with Love.</p>
+				<p class="copyright i18n" data-en="© Ashcraft Bespoke Creations &amp; Juicery. Crafted with Love." data-fr="© Ashcraft Créations Artisanales &amp; Jus. Fabriqué avec Amour." data-html="true">© Ashcraft Bespoke Creations &amp; Juicery. Crafted with Love.</p>
 			</div>
 		</div>
 	</footer>
+
+	<script>
+		function setLang(lang) {
+			document.querySelectorAll('.i18n').forEach(function (el) {
+				var value = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+				if (el.getAttribute('data-html') === 'true') {
+					el.innerHTML = value;
+				} else {
+					el.textContent = value;
+				}
+			});
+			document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+			document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
+			document.getElementById('htmlRoot').setAttribute('lang', lang);
+			try { localStorage.setItem('ashcraft-lang', lang); } catch (e) {}
+		}
+
+		(function () {
+			var saved = null;
+			try { saved = localStorage.getItem('ashcraft-lang'); } catch (e) {}
+			if (saved === 'fr') { setLang('fr'); }
+		})();
+	</script>
 
 </body>
 
